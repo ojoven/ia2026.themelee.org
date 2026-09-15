@@ -1,6 +1,6 @@
 # The Mêlée — ¡vuelve!
 
-Landing del encuentro del 2 de octubre. Next.js 16 (App Router), React 19 y TypeScript, con estilos CSS propios. Contenido renderizado en servidor y animaciones CSS que respetan `prefers-reduced-motion`.
+Landing del encuentro del 2 de octubre: [https://ia2026.themelee.org](https://ia2026.themelee.org). Next.js 16 (App Router), React 19 y TypeScript, con estilos CSS propios. Contenido renderizado en servidor y animaciones CSS que respetan `prefers-reduced-motion`.
 
 ## Desarrollo
 
