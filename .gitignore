@@ -1,7 +1,10 @@
 node_modules/
 .next/
+.next-demo/
+.onboarding-demo/
 out/
 .env*
 !.env.example
 *.tsbuildinfo
 .DS_Store
+data/

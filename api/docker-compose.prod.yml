@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: melee
+      POSTGRES_USER: melee
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    ports:
+      - "127.0.0.1:5441:5432"
+    volumes:
+      - prod-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U melee -d melee"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+
+volumes:
+  prod-db:

@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: melee_demo
+      POSTGRES_USER: melee_demo
+      POSTGRES_PASSWORD: melee_demo
+    ports:
+      - "127.0.0.1:5440:5432"
+    volumes:
+      - demo-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U melee_demo -d melee_demo"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+
+volumes:
+  demo-db:

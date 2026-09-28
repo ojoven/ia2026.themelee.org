@@ -194,18 +194,19 @@ const overlays = [
   await textLayer("THE MÊLÉE · DONOSTIA", 17, "#252821", 120, 56, {
     weight: 650,
   }),
-  await textLayer("The Mêlée", 84, "#252821", 49, 142, {
+  await textLayer("IA, desarrollo", 76, "#252821", 49, 142, {
     weight: 600,
-    letterSpacing: -6,
+    letterSpacing: -5,
   }),
-  await textLayer("¡vuelve!", 98, "#df572c", 49, 234, {
+  await textLayer("y producto.", 88, "#df572c", 49, 226, {
     weight: 600,
-    letterSpacing: -6,
+    letterSpacing: -5,
   }),
   await textLayer(event.date, 27, "#252821", 55, 373, { weight: 550 }),
   await textLayer(`${event.time} · ${event.venueResumed}`, 23, "#494c43", 55, 414),
-  await textLayer("IA, desarrollo y producto.", 22, "#252821", 55, 471, {
+  await textLayer("CÓMO USARLA · CÓMO SACARLE PARTIDO", 16, "#252821", 55, 476, {
     font: cardFonts.body,
+    weight: 600,
   }),
   await textLayer("FISHBOWL · ENTRADA GRATIS", 16, "#252821", 78, 560, {
     font: cardFonts.body,
@@ -219,12 +220,56 @@ await sharp({
   .jpeg({ quality: 88, mozjpeg: true })
   .toFile(path.join(root, "public/og-image.jpg"));
 
+// Onboarding illustrations get the same paper-to-alpha treatment as the hero,
+// using each image's own corner tone as the paper colour.
+const onboardingArt = ["welcome", "role", "tools", "frequency", "topics"];
+await mkdir(path.join(assets, "onboarding"), { recursive: true });
+for (const name of onboardingArt) {
+  const { data: pixels, info: artInfo } = await sharp(
+    path.join(root, `context/onboarding/${name}.png`),
+  )
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const artPaper = [pixels[0], pixels[1], pixels[2]];
+  const faded = Buffer.alloc(artInfo.width * artInfo.height * 4);
+  for (let pixel = 0; pixel < artInfo.width * artInfo.height; pixel++) {
+    const source = pixel * 3;
+    const target = pixel * 4;
+    const distance = Math.sqrt(
+      (pixels[source] - artPaper[0]) ** 2 +
+        (pixels[source + 1] - artPaper[1]) ** 2 +
+        (pixels[source + 2] - artPaper[2]) ** 2,
+    );
+    faded[target] = pixels[source];
+    faded[target + 1] = pixels[source + 1];
+    faded[target + 2] = pixels[source + 2];
+    faded[target + 3] = Math.max(0, Math.min(255, ((distance - 14) / 46) * 255));
+  }
+  const art = () =>
+    sharp(faded, {
+      raw: { width: artInfo.width, height: artInfo.height, channels: 4 },
+    }).resize({ width: 1040, withoutEnlargement: true });
+  await Promise.all([
+    art()
+      .avif({ quality: 52, effort: 4 })
+      .toFile(path.join(assets, `onboarding/${name}.avif`)),
+    art()
+      .webp({ quality: 80, alphaQuality: 92, effort: 6 })
+      .toFile(path.join(assets, `onboarding/${name}.webp`)),
+  ]);
+}
+
 const generatedHeroImages = heroWidths.flatMap((width) => [
   `images/${heroOutputName(width, "avif")}`,
   `images/${heroOutputName(width, "webp")}`,
 ]);
 for (const name of [
   ...generatedHeroImages,
+  ...onboardingArt.flatMap((name) => [
+    `images/onboarding/${name}.avif`,
+    `images/onboarding/${name}.webp`,
+  ]),
   "images/logo.webp",
   "icon.png",
   "favicon.ico",

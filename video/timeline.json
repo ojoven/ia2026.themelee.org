@@ -1,0 +1,17 @@
+{
+	"about": "Pacing shared by showreel.html and soundtrack.mjs. The choreography is authored on a 15 s base clock; each segment [baseStart, baseEnd, seconds] plays that stretch of it over `seconds` of video (baseStart = baseEnd is a hold). Keep the extra time in multiples of 0.5 s so cuts stay on the 120 BPM grid.",
+	"duration": 25,
+	"segments": [
+		[3.98, 4.48, 1.0],
+		[5.355, 5.355, 1.5],
+		[5.83, 5.83, 1.5],
+		[6.33, 6.33, 1.5],
+		[6.83, 6.83, 1.5],
+		[7.285, 7.285, 0.5],
+		[8.9, 8.9, 0.5],
+		[10.37, 10.37, 0.5],
+		[11.5, 11.5, 1.0],
+		[12.83, 12.83, 0.5],
+		[14.75, 14.75, 0.5]
+	]
+}

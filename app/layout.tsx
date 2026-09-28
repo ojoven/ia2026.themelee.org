@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "The Mêlée vuelve el 2 de octubre. IA, fishbowl y entrada gratis en Donostia.",
+        alt: "Encuentro sobre IA, desarrollo y producto de The Mêlée, el 2 de octubre en Donostia.",
       },
     ],
   },

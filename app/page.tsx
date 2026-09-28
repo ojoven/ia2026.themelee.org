@@ -60,7 +60,7 @@ function RegisterLink({ small = false }: { small?: boolean }) {
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			Apúntate aquí <Icon name="arrow" />
+			Reserva tu plaza <Icon name="arrow" />
 			<span className="sr-only"> (abre en otra pestaña)</span>
 		</a>
 	);
@@ -89,11 +89,14 @@ export default function Home() {
 					</div>
 					<div className="hero-content wrap">
 						<div className="hero-copy">
-							<h1 id="hero-title">
-								The Mêlée
+							<h1 id="hero-title" className="hero-title">
+								IA, desarrollo
 								<br />
-								<span>¡vuelve!</span>
+								<span>y producto.</span>
 							</h1>
+							<p className="hero-lead">
+								<strong>¿Cómo la estamos utilizando?<br className="desktop-break" />¿Cómo podemos sacarle el máximo partido?</strong>
+							</p>
 							<div className="hero-date">
 								<span className="hero-detail">
 									<Icon name="calendar" />
@@ -120,11 +123,6 @@ export default function Home() {
 									</span>
 								</a>
 							</div>
-							<p className="hero-lead">
-								Sí, lo has adivinado:
-								<br />
-								<strong>hablaremos de IA.</strong>
-							</p>
 							<div className="cta-group">
 								<RegisterLink />
 								<span className="free-note">
@@ -132,15 +130,14 @@ export default function Home() {
 								</span>
 							</div>
 							<p className="hero-after">
-								Y luego, nuestro habitual <strong>Tercer Tiempo™</strong>
-								<br className="desktop-break" /> en el Vía Fora: algo de picoteo
-								y unas cervezas.
+								Conversación en formato <strong>fishbowl</strong> y, después,
+								<strong>Tercer Tiempo™</strong> en el Vía Fora.
 							</p>
 						</div>
 						<div className="hero-scribble" aria-hidden="true">
-							Ya tocaba,
+							Había ganas de,
 							<br />
-							<span>¿no?</span>
+							<span>The Mêlée.</span>
 							<svg viewBox="0 0 70 55" fill="none">
 								<path
 									d="M13 3c-8 21 8 37 42 29m-12-9 14 8-9 13"
@@ -163,13 +160,13 @@ export default function Home() {
 
 				<div className="community-strip" aria-hidden="true">
 					<div className="wrap strip-inner">
-						<span>GENTE CON INQUIETUDES</span>
+						<span>IA EN EL DÍA A DÍA</span>
 						<Icon name="star" />
-						<span>COMPARTIR IDEAS</span>
+						<span>DESARROLLO × PRODUCTO</span>
 						<Icon name="star" />
-						<span>GANAS DE VERNOS</span>
+						<span>CASOS REALES</span>
 						<Icon name="star" />
-						<span>THE MÊLÉE IS BACK</span>
+						<span>CONVERSACIÓN ABIERTA</span>
 					</div>
 				</div>
 
@@ -183,22 +180,19 @@ export default function Home() {
 							<span className="section-number">01 /</span> LA CONVERSACIÓN
 						</p>
 						<h2 id="conversation-title">
-							Mucho que
+							Mucho que compartir,
 							<br />
-							compartir.
-							<br />
-							<span className="muted-heading">Y que aprender.</span>
+							<span className="muted-heading">y que aprender.</span>
 						</h2>
 						<p>
-							La IA está cambiando cómo trabajamos.
-							<br />
-							¿Qué mejor que juntarnos, compartir lo que sabemos
-							<br className="desktop-break" /> y aprender de los demás?
+							La IA está cambiando cómo trabajamos.<br className="desktop-break" />
+							¿Qué mejor que juntarnos, compartir lo que sabemos<br className="desktop-break" />
+							y aprender de los demás?
 						</p>
 						<p className="hand-note">
-							Experiencias reales.
+							Te la vas a gozar,
 							<br />
-							Dudas muy humanas.
+							ya verás.
 						</p>
 					</div>
 					<div className="topics">
@@ -209,7 +203,7 @@ export default function Home() {
 								<h3>La IA en nuestro día a día</h3>
 								<p>
 									¿Cómo estamos trabajando con ella? Desarrollo asistido por IA,
-									flujos de trabajo, sistemas agénticos, qué nos está funcionando,
+									flujos de trabajo, context switching, sistemas agénticos, qué nos está funcionando,
 									y qué no.
 								</p>
 								<span className="topic-tag">AI-assisted engineering</span>
@@ -263,6 +257,62 @@ export default function Home() {
 				</section>
 
 				<section
+					id="para-quien"
+					className="audience-section section-space"
+					aria-labelledby="audience-title"
+				>
+					<div className="wrap">
+						<div className="audience-intro">
+							<div>
+								<p className="eyebrow">
+									<span className="section-number">02 /</span> ¿ES PARA TI?
+								</p>
+								<h2 id="audience-title">
+									Te puede interesar
+									<br />
+									si eres…
+								</h2>
+							</div>
+						</div>
+
+						<div className="audience-grid">
+							<article className="audience-card">
+								<span className="audience-number">01</span>
+								<h3>Desarrollador/a o software engineer</h3>
+								<p>
+									Si ya programas con IA y buscas flujos,
+									prácticas y aprendizajes que puedas llevarte al trabajo.
+								</p>
+							</article>
+							<article className="audience-card">
+								<span className="audience-number">02</span>
+								<h3>Consultor/a de IA</h3>
+								<p>
+									Si acompañas a equipos o empresas y quieres contrastar cómo pasar
+									de la demo a una adopción útil, responsable y sostenible.
+								</p>
+							</article>
+							<article className="audience-card">
+								<span className="audience-number">03</span>
+								<h3>Estudiante o perfil junior</h3>
+								<p>
+									Si estás entrando en el sector y quieres entender qué está
+									cambiando, qué habilidades importan y cómo se trabaja hoy.
+								</p>
+							</article>
+							<article className="audience-card">
+								<span className="audience-number">04</span>
+								<h3>Profesional de producto</h3>
+								<p>
+									Si trabajas en producto, diseño, negocio, marketing o educación y
+									quieres descubrir cómo la IA transforma equipos y disciplinas.
+								</p>
+							</article>
+						</div>
+					</div>
+				</section>
+
+				<section
 					id="formato"
 					className="fishbowl-section"
 					aria-labelledby="fishbowl-title"
@@ -270,7 +320,7 @@ export default function Home() {
 					<div className="wrap fishbowl-layout">
 						<div className="fishbowl-visual">
 							<p className="eyebrow">
-								<span className="section-number">02 /</span> EL FORMATO
+								<span className="section-number">03 /</span> EL FORMATO
 							</p>
 							<div
 								className="fishbowl-diagram"
@@ -316,7 +366,7 @@ export default function Home() {
 								se hace en círculo.
 							</h2>
 							<p>
-								Esta vez nos sentamos en círculos para debatir de
+								Nos sentamos en círculos para debatir de
 								forma fluida, participativa y con una persona moderando para que
 								la conversación ruede.
 							</p>
@@ -360,12 +410,12 @@ export default function Home() {
 				>
 					<div className="about-heading">
 						<p className="eyebrow">
-							<span className="section-number">03 /</span> LA COMUNIDAD
+							<span className="section-number">04 /</span> QUIÉNES SOMOS
 						</p>
 						<h2 id="about-title">
-							Mucho más
+							¿Qué es
 							<br />
-							que avatares.
+							The Mêlée?
 						</h2>
 						<div className="about-motto">
 							<Icon name="star" />
@@ -377,12 +427,12 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="about-copy">
-						<p className="about-kicker">Por si no sabes qué es The Mêlée…</p>
+						<p className="about-kicker">Una comunidad local y abierta.</p>
 						<p>
-							Somos una comunidad de personas de Gipuzkoa con inquietudes y ganas
-							de hacer cosas. Nos juntamos profesionales del desarrollo, ingeniería, diseño,
-							UX, marketing, gente que emprende, estudiantes… y quien tenga
-							curiosidad.
+							The Mêlée reúne en Gipuzkoa a personas con ganas de crear,
+							aprender y compartir. Aquí coinciden profesionales del desarrollo,
+							la ingeniería, el diseño, el producto o el marketing, gente que
+							emprende, estudiantes… y cualquiera que tenga curiosidad.
 						</p>
 						<p>
 							Nos gusta mezclar perfiles, aprender de la experiencia de otras
@@ -395,7 +445,7 @@ export default function Home() {
 							cañas, tostas y conversaciones muy interesantes.
 						</p>
 						<p className="welcome-line">
-							¿Tu primera Mêlée? Serás bienvenid@.
+							¿Tu primera Mêlée? Este también es tu sitio.
 						</p>
 						<a
 							className="text-link"
@@ -417,15 +467,14 @@ export default function Home() {
 					<div className="closing-card">
 						<div className="closing-main">
 							<p className="eyebrow">
-								CIERRA UN RATO EL EDITOR Y VENTE.
+								UNA TARDE PARA HABLAR DE IA DE VERDAD.
 							</p>
 							<h2 id="closing-title">
-								Venga, <span>anímate.</span>
+								Trae tus <span>preguntas.</span>
 							</h2>
 							<p>
-								Meleeras, meleeros y gente por conocer:
-								<br />
-								tenemos IA para rato y muchas ganas de vernos.
+								Si la IA está cambiando tu trabajo
+								—o quieres entender cómo lo hará—, este encuentro es para ti.
 							</p>
 							<div className="closing-details">
 								<span>{event.date}</span>
@@ -437,7 +486,7 @@ export default function Home() {
 								<span className="free-note">
 									Entrada gratis.
 									<br />
-									Buen rollo incluido.
+									Conversación incluida.
 								</span>
 							</div>
 							<a
@@ -465,12 +514,24 @@ export default function Home() {
 			</main>
 
 			<footer className="site-footer wrap">
-				<a href="#" className="brand" aria-label="Volver al inicio">
-					<Image src="/images/logo.webp" alt="" width={32} height={32} />
-					<span>
-						the mêlée<span className="brand-dot">.</span>
-					</span>
-				</a>
+				<div className="footer-left">
+					<a href="#" className="brand" aria-label="Volver al inicio">
+						<Image src="/images/logo.webp" alt="" width={32} height={32} />
+						<span>
+							the mêlée<span className="brand-dot">.</span>
+						</span>
+					</a>
+					<div className="footer-support">
+						<span>con la ayuda de</span>
+						<Image
+							className="footer-support-logo"
+							src="/images/deusto.png"
+							alt="Deusto"
+							width={263}
+							height={63}
+						/>
+					</div>
+				</div>
 				<a href={event.communityUrl} target="_blank" rel="noopener noreferrer">
 					themelee.org <Icon name="arrow" />
 					<span className="sr-only"> (abre en otra pestaña)</span>

@@ -1,0 +1,7 @@
+Options -MultiViews
+RewriteEngine On
+RewriteRule ^app/?$ app.html [L]
+RewriteRule ^app/dashboard/?$ app/dashboard.html [L]
+RewriteRule ^live/?$ live.html [L]
+RewriteRule ^live/screen/?$ live/screen.html [L]
+RewriteRule ^live/control/?$ live/control.html [L]

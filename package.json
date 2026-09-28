@@ -7,19 +7,30 @@
     "assets": "node scripts/generate-assets.mjs",
     "prebuild": "npm run assets",
     "build": "next build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "api": "node --env-file-if-exists=.env api/server.mjs",
+    "api:db": "docker compose -f api/docker-compose.yml up -d",
+    "api:seed": "node --env-file-if-exists=.env api/seed.mjs",
+    "demo:empty": "node scripts/onboarding-demo.mjs empty",
+    "demo:few": "node scripts/onboarding-demo.mjs few",
+    "demo:stop": "node scripts/onboarding-demo.mjs stop"
   },
   "dependencies": {
+    "@dnd-kit/react": "^0.5.0",
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource-variable/space-grotesk": "^5.3.0",
     "@fontsource/caveat": "^5.2.8",
     "next": "16.3.5",
+    "pg": "^8.23.0",
+    "qrcode-generator": "^2.0.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.4",
+    "simple-icons": "^16.32.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.9.0"
